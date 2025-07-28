@@ -1,8 +1,14 @@
-FROM openjdk:8-jre-alpine
+# Use an official JDK image as base
+FROM openjdk:17-jdk-slim
 
+# Set working directory inside container
+WORKDIR /app
+
+# Copy the JAR file into the container
+COPY build/libs/*.jar app.jar
+
+# Expose port (Spring Boot default is 8080)
 EXPOSE 8080
 
-COPY ./build/libs/my-app-1.0-SNAPSHOT.jar /usr/app/
-WORKDIR /usr/app
-
-ENTRYPOINT ["java", "-jar", "my-app-1.0-SNAPSHOT.jar"]
+# Run the application
+ENTRYPOINT ["java", "-jar", "app.jar"]
