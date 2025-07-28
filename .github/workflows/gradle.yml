@@ -28,5 +28,18 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    
+    - name: Build and Push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: keen_ramanujan/my-sprng-app
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+        
+
+
+  
 
   
