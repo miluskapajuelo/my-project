@@ -31,7 +31,7 @@ jobs:
     - name: Build and Push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: keen_ramanujan/my-sprng-app
+        image: milliepajuelo/my-first-docker-project
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
